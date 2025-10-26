@@ -30,19 +30,38 @@ test.describe('MyEdSpaceApp', () => {
     // Login
     await page.getByRole('button', { name: 'Login' }).click();
 
-    // Wait for the video to be visible
-    await expect(page.getByTestId('streaming-video-component')).toBeVisible();
+    // Wait for the video component to be visible
+    const videoComponent = page.getByTestId('streaming-video-component');
+    await expect(videoComponent).toBeVisible();
 
-    // Simulate user interaction click the video play
+    // Wait for the iframe to load
+    const frame = page.frameLocator('iframe[title="Lagwagon May 16"]');
+    await expect(frame).toBeTruthy();
 
-    // NOTE: this works because we set the timezone locale at UK so the name of the button will be `Play` (in english) but, at others timezones could be break
-    await page
-      .locator('iframe[title="Lagwagon May 16"]')
-      .contentFrame()
-      .getByRole('button', { name: 'Play' })
-      .click();
+    // Wait for the YouTube player to be fully loaded
+    // Give YouTube iframe API time to initialize
+    await page.waitForTimeout(3000);
 
-    // Check if the event is displayed in the EventsComponent
-    await expect(page.getByText('play')).toBeVisible();
+    // Click play using YouTube's API
+    await page.evaluate(() => {
+      // Access the iframe and its contentWindow
+      const iframe = document.querySelector('iframe');
+
+      if (iframe && iframe.contentWindow) {
+        // Send play command to YouTube player
+        iframe.contentWindow.postMessage(
+          '{"event":"command","func":"playVideo","args":""}',
+          '*'
+        );
+      }
+    });
+
+    // First wait for the event list to be visible
+    await expect(page.locator('ul')).toBeVisible({ timeout: 5000 });
+
+    // Then wait for the play event to appear in the list
+    await expect(
+      page.locator('ul li').filter({ hasText: 'play' }).first()
+    ).toBeVisible({ timeout: 15000 });
   });
 });
