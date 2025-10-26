@@ -3,6 +3,7 @@ import YouTube from 'react-youtube';
 import { type VideoEvent } from '../../events/video_event';
 import { type YouTubePlayer } from 'react-youtube';
 import { VIDEO_EVENT_TYPES } from '../../events/video_event';
+import { PLAYER_STATES, type PlayerState } from './streaming_video_states';
 
 export const STREAMING_VIDEO_WIDTH = 800;
 
@@ -17,26 +18,13 @@ const STREAMING_VIDEO_OPTIONS = {
   },
 };
 
-const PLAYER_STATES = {
-  UN_STARTED: -1,
-  ENDED: 0,
-  PLAYING: 1,
-  PAUSED: 2,
-  BUFFERING: 3,
-  CUED: 5,
-} as const;
-
-type ValueOf<T> = T[keyof T];
-
-export type PlayerState = ValueOf<typeof PLAYER_STATES>;
-
 export function StreamingVideoComponent({ onTrackEvent }: {
   onTrackEvent: (event: VideoEvent) => void;
 }) {
   const handlePlayerStateChange = (event: { data: number; target: YouTubePlayer }) => {
     const timestamp = Date.now();
 
-    switch (event.data) {
+    switch (event.data as PlayerState) {
       case PLAYER_STATES.PLAYING:
         onTrackEvent({ type: VIDEO_EVENT_TYPES.PLAY, timestamp });
         break;
