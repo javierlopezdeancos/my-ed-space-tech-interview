@@ -1,4 +1,3 @@
-
 import YouTube from 'react-youtube';
 import { type VideoEvent } from '../../events/video_event';
 import { type YouTubePlayer } from 'react-youtube';
@@ -18,10 +17,15 @@ const STREAMING_VIDEO_OPTIONS = {
   },
 };
 
-export function StreamingVideoComponent({ onTrackEvent }: {
+export function StreamingVideoComponent({
+  onTrackEvent,
+}: {
   onTrackEvent: (event: VideoEvent) => void;
 }) {
-  const handlePlayerStateChange = (event: { data: number; target: YouTubePlayer }) => {
+  const handlePlayerStateChange = (event: {
+    data: number;
+    target: YouTubePlayer;
+  }) => {
     const timestamp = Date.now();
 
     switch (event.data as PlayerState) {

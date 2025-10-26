@@ -79,11 +79,11 @@ events. Display the captured events in memory (e.g., console or UI list).
 ## How to Approach It
 
 - Write **React (JS or TS)** code that is **fully testable**, you should use functional
-components and not class components
+  components and not class components
 - You don’t need to implement a real auth flow — just simulate it.
 - Focus on separation of concerns and extensibility
 - You may use any lightweight testing framework (e.g. Jest, Testing Library) to
-show intent and test structure.
+  show intent and test structure.
 
 ## Testing Expectations
 
@@ -91,7 +91,7 @@ Please include at least **two meaningful tests**:
 
 1. A test validating that **unauthenticated users cannot view the video**
 2. A test ensuring that **user interactions are tracked correctly**
-Bonus if you show intent to mock YouTube events or abstract away APIs.
+   Bonus if you show intent to mock YouTube events or abstract away APIs.
 
 ## What We’ll Discuss in Review
 
@@ -106,11 +106,11 @@ Bonus if you show intent to mock YouTube events or abstract away APIs.
 - A simple React app is enough, or you can use a framework if preferred
 - Avoid large libraries — keep it lightweight
 - You can use AI tools to support your work as long as **you remain the
-decision-maker**
+  decision-maker**
 - Complete the exercise and share your code with us, we will then organize a
-follow up review. We recommend time boxing to 2hrs and sharing your code
-via git bundle which is well described at the following link
-<https://www.linkedin.com/pulse/what-git-bundle-stephen-paynter/>
+  follow up review. We recommend time boxing to 2hrs and sharing your code
+  via git bundle which is well described at the following link
+  <https://www.linkedin.com/pulse/what-git-bundle-stephen-paynter/>
 
 ## My Exercise - Getting Started
 
@@ -144,6 +144,14 @@ pnpm dev
 
 This will start the application on `http://localhost:5173`.
 
+### Formatting
+
+To format the code, run the following command:
+
+```shell
+pnpm format
+```
+
 ### Testing
 
 To run the unit tests, use the following commands:
@@ -156,15 +164,15 @@ To run the end-to-end tests, use the following command:
 
 1. install browsers (only once)
 
-    ```shell
-    pnpm exec playwright install
-    ```
+   ```shell
+   pnpm exec playwright install
+   ```
 
 2. run tests
 
-    ```shell
-    pnpm test:e2e
-    ```
+   ```shell
+   pnpm test:e2e
+   ```
 
 To run all tests, use the following command:
 

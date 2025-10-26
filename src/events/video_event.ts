@@ -11,4 +11,4 @@ export type VideoEventType = ValueOf<typeof VIDEO_EVENT_TYPES>;
 export type VideoEvent = {
   type: VideoEventType;
   timestamp: number;
-}
+};

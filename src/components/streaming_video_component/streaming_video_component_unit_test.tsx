@@ -40,15 +40,21 @@ describe('StreamingViewComponent', () => {
 
     // PLAY event
     onStateChange(mockEvent(PLAYER_STATES.PLAYING));
-    expect(onTrackEvent).toHaveBeenCalledWith(expect.objectContaining({ type: VIDEO_EVENT_TYPES.PLAY }));
+    expect(onTrackEvent).toHaveBeenCalledWith(
+      expect.objectContaining({ type: VIDEO_EVENT_TYPES.PLAY })
+    );
 
     // PAUSE event
     onStateChange(mockEvent(PLAYER_STATES.PAUSED));
-    expect(onTrackEvent).toHaveBeenCalledWith(expect.objectContaining({ type: VIDEO_EVENT_TYPES.PAUSE }));
+    expect(onTrackEvent).toHaveBeenCalledWith(
+      expect.objectContaining({ type: VIDEO_EVENT_TYPES.PAUSE })
+    );
 
     // SEEK (via BUFFERING) event
     onStateChange(mockEvent(PLAYER_STATES.BUFFERING));
-    expect(onTrackEvent).toHaveBeenCalledWith(expect.objectContaining({ type: VIDEO_EVENT_TYPES.SEEK }));
+    expect(onTrackEvent).toHaveBeenCalledWith(
+      expect.objectContaining({ type: VIDEO_EVENT_TYPES.SEEK })
+    );
 
     // Assert total calls
     expect(onTrackEvent).toHaveBeenCalledTimes(3);

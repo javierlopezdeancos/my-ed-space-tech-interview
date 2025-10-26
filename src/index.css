@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #3533ff;
@@ -8,8 +8,8 @@
   --color-secondary-500: #b0db03;
   --color-secondary-600: #a0c703;
 
-  --color-tertiary: "#101626";
-  --color-tertiary-500: "#101626";
+  --color-tertiary: '#101626';
+  --color-tertiary-500: '#101626';
   --color-tertiary-400: #171f36;
   --color-tertiary-300: #26345a;
 }

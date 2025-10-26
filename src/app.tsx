@@ -17,21 +17,27 @@ export const MyEdSpaceApp = (): JSX.Element => {
 
   return (
     <AppLayout>
-       <main className={clsx("flex flex-1 m-auto justify-center items-center gap-10", isLoggedIn && "items-start pt-20")}>
+      <main
+        className={clsx(
+          'flex flex-1 m-auto justify-center items-center gap-10',
+          isLoggedIn && 'items-start pt-20'
+        )}
+      >
         <div>
-          {isLoggedIn
-            ? <StreamingVideoComponent onTrackEvent={handleTrackEvent} />
-            : <TextComponent as='p' variant="body" className="text-6xl font-bold">
-                Please log in to view the livestream.
-              </TextComponent>
-          }
+          {isLoggedIn ? (
+            <StreamingVideoComponent onTrackEvent={handleTrackEvent} />
+          ) : (
+            <TextComponent as="p" variant="body" className="text-6xl font-bold">
+              Please log in to view the livestream.
+            </TextComponent>
+          )}
         </div>
-        {isLoggedIn
-          ? <aside>
-              <EventsComponent events={events} title='Tracked Events'/>
-            </aside>
-          : null}
+        {isLoggedIn ? (
+          <aside>
+            <EventsComponent events={events} title="Tracked Events" />
+          </aside>
+        ) : null}
       </main>
     </AppLayout>
   );
-}
+};

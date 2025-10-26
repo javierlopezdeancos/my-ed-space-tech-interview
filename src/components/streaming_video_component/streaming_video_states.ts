@@ -10,4 +10,3 @@ export const PLAYER_STATES = {
 type ValueOf<T> = T[keyof T];
 
 export type PlayerState = ValueOf<typeof PLAYER_STATES>;
-
