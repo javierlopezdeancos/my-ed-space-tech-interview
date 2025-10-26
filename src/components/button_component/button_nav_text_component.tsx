@@ -13,6 +13,7 @@ export const ButtonNavTextComponent =
   ({ className, variant = "primary", onClick, ...props}: ButtonNavTextProps): JSX.Element => {
     return (
       <a
+        role="button"
         href="#"
         className={twMerge(buttonNavTextVariants({ variant }), className)}
         onClick={onClick}

@@ -41,7 +41,7 @@ export function StreamingVideoComponent({ onTrackEvent }: {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full" data-testid="streaming-video-component">
       <YouTube
         videoId="hzYOA4-xNaA"
         opts={STREAMING_VIDEO_OPTIONS}
