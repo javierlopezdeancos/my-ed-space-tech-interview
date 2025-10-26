@@ -14,6 +14,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Development](#development)
+  - [Formatting](#formatting)
   - [Testing](#testing)
   - [Docker](#docker)
 
