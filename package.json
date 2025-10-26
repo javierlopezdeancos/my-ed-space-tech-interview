@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.1.0",
   "type": "module",
-  "description": "MyEdSpace Coding Exercise - Frontend",
+  "description": "MyEdSpace Coding Exercise - Frontend Tech Interview",
   "author": {
     "name": "Javier Lopez de Ancos",
     "email": "javierlopezdeancos@outlook.com"
@@ -13,16 +13,25 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "pnpm run test:unit && pnpm run test:e2e",
+    "test:unit:watch": "vitest --watch",
+    "test:unit": "vitest",
+    "test:e2e": "playwright test",
+    "container:build": "docker build -t my-ed-space .",
+    "container:run": "docker run -p 8080:80 my-ed-space",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "vitest related --run"
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-youtube": "^10.1.0"
-
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.56.1",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/vite": "^4.1.16",
     "@testing-library/jest-dom": "^6.9.1",
@@ -38,7 +47,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "jsdom": "^27.0.1",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.5.6",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.16",
