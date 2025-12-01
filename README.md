@@ -1,6 +1,6 @@
 # MyEdSpace Coding Exercise - Frontend
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ba2ecbc0-eced-4028-b7fa-71cb114fdce5/deploy-status)](https://app.netlify.com/projects/my-ed-space-tech-interview/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba2ecbc0-eced-4028-b7fa-71cb114fdce5/deploy-status)](https://my-ed-space-tech-interview.netlify.app)
 
 - [What You'll Be Building](#what-youll-be-building)
 - [Core Concepts](#core-concepts)
